@@ -42,34 +42,62 @@
         width: calc(58.333% - 12px);
       }
 
-      /* типографика — исправленная иерархия */
-      .hero-greeting {
+      /* строка "Привет! Меня зовут Надя" */
+      .hero-name-line {
+        display: flex;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+
+      .hero-name-prefix {
         font-size: 24px;
         font-weight: 500;
         color: #6d3aff;
         text-transform: uppercase;
         letter-spacing: 0.1em;
-        margin-bottom: 24px;
       }
 
-      .hero-name {
+      .hero-name-first {
+        font-size: 82px;
+        font-weight: 800;
+        color: #493f55;
+        text-transform: uppercase;
+        line-height: 1;
+        letter-spacing: -0.02em;
+      }
+
+      /* вторая строка — Кампейн директор (в одну строку) */
+      .hero-name-second {
         font-size: 82px;
         font-weight: 800;
         color: #493f55;
         text-transform: uppercase;
         line-height: 1.05;
-        margin-bottom: 32px;
+        margin-bottom: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 12px;
       }
 
-      .hero-name i {
-        font-style: italic;
+      .hero-name-second .normal {
         font-weight: 800;
-        background: linear-gradient(135deg, #6d3aff 0%, #ff9e2c 100%);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        font-style: normal;
       }
 
+      .hero-name-second .italic {
+        font-family: "Manrope", sans-serif;
+        font-weight: 800;
+        font-style: italic;
+        color: #ff9e2c;
+        text-transform: uppercase;
+        letter-spacing: -0.01em;
+        display: inline-block;
+      }
+
+      /* подзаголовок */
       .hero-subhead {
         font-size: 20px;
         font-weight: 600;
@@ -77,22 +105,7 @@
         text-transform: uppercase;
         letter-spacing: 0.02em;
         line-height: 1.4;
-        margin-bottom: 24px;
-      }
-
-      .hero-description {
-        font-size: 15px;
-        font-weight: 400;
-        color: #493f55;
-        line-height: 1.6;
-        margin-bottom: 40px;
-        max-width: 90%;
-      }
-
-      .hero-description i {
-        font-style: italic;
-        font-weight: 600;
-        color: #6d3aff;
+        margin-bottom: 48px;
       }
 
       /* кнопка основная */
@@ -216,11 +229,12 @@
           padding-right: 4vw;
         }
 
-        .hero-name {
+        .hero-name-first,
+        .hero-name-second {
           font-size: 56px;
         }
 
-        .hero-greeting {
+        .hero-name-prefix {
           font-size: 18px;
         }
       }
@@ -236,17 +250,17 @@
           padding: 40px 0 60px 0;
         }
 
-        .hero-name {
+        .hero-name-first,
+        .hero-name-second {
           font-size: 42px;
+        }
+
+        .hero-name-prefix {
+          font-size: 16px;
         }
 
         .hero-subhead {
           font-size: 16px;
-        }
-
-        .hero-description {
-          font-size: 14px;
-          max-width: 100%;
         }
 
         .nav-links {
@@ -264,7 +278,8 @@
       }
 
       @media (max-width: 480px) {
-        .hero-name {
+        .hero-name-first,
+        .hero-name-second {
           font-size: 32px;
         }
       }
@@ -290,38 +305,38 @@
       <!-- Hero секция — ровно на всю высоту -->
       <section class="hero">
         <div class="row" style="align-items: center; width: 100%">
-          <!-- Левая колонка на 5 колонок под фото — БЕЗ ФОНА -->
+          <!-- Левая колонка на 5 колонок под фото -->
           <div class="col-5">
             <div class="photo-placeholder">
-              <!-- Когда будет фото, замените на img -->
-              <img 
-                src="https://placehold.co/800x1000/FFFBF5/493F55?text=ФОТО+НАДИ" 
-                alt="Надя, кампейн директор" 
+              <img
+                src="https://placehold.co/800x1000/FFFBF5/493F55?text=ФОТО+НАДИ"
+                alt="Надя, кампейн директор"
                 class="hero-photo"
               />
-              <!-- Реальная замена:
-              <img src="your-photo.jpg" alt="Надя, кампейн директор" class="hero-photo">
-              -->
             </div>
           </div>
 
           <!-- Правая колонка на 7 колонок с текстом -->
           <div class="col-7">
-            <div class="hero-greeting">Привет! Меня зовут <h1 class="hero-name">
-              Надя,</h1></div>
-            <h1 class="hero-name">
-              Кампейн <i>директор</i>
-            </h1>
-
-            <div class="hero-greeting">
-              Превратила хаос найма SMM и смены подрядчиков<br />
-              в систему продающих спринтов
+            <!-- Первая строка: Привет! Меня зовут + НАДЯ -->
+            <div class="hero-name-line">
+              <span class="hero-name-prefix">ПРИВЕТ! МЕНЯ ЗОВУТ</span>
+              <span class="hero-name-first">НАДЯ,</span>
             </div>
 
+            <!-- Вторая строка: Кампейн директор (в одну строку) -->
+            <div class="hero-name-second">
+              <span class="italic">КАМПЕЙН</span>
+              <span class="normal">директор</span>
+            </div>
 
-            <a href="#" class="btn-primary">Хочу поток заявок →</a>
+            <!-- Подзаголовок -->
+            <div class="hero-subhead">
+              ПРЕВРАТИЛА ХАОС НАЙМА SMM И СМЕНЫ ПОДРЯДЧИКОВ<br />
+              В СИСТЕМУ ПРОДАЮЩИХ СПРИНТОВ
+            </div>
 
-        
+            <a href="#" class="btn-primary">ХОЧУ ПОТОК ЗАЯВОК →</a>
           </div>
         </div>
       </section>
