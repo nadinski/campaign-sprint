@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -19,10 +19,11 @@
 
       body {
         background-color: #fffbf5;
-        font-family: "Manrope", sans-serif;
+        font-family: "Onest", sans-serif;
       }
 
       .container {
+        max-width: 1440px;
         margin: 0 auto;
         padding-left: 6vw;
         padding-right: 6vw;
@@ -35,83 +36,65 @@
         flex-wrap: wrap;
       }
 
-      .col-5 {
-        width: calc(41.666% - 12px);
+      .col-4 {
+        width: calc(33.333% - 16px);
       }
-      .col-7 {
-        width: calc(58.333% - 12px);
+      .col-8 {
+        width: calc(66.666% - 8px);
       }
 
-      /* градиентный текст — увеличен line-height */
-      .gradient-text {
+      /* типографика */
+      .hero-greeting {
+        font-size: 20px;
+        font-weight: 500;
+        color: #6d3aff;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 20px;
+      }
+
+      .hero-name {
+        font-size: 82px;
+        font-weight: 600;
+        color: #493f55;
+        text-transform: uppercase;
+        line-height: 1.1;
+        margin-bottom: 28px;
+        letter-spacing: -0.02em;
+      }
+
+      .hero-title {
+        font-size: 82px;
+        font-weight: 600;
+        color: #493f55;
+        text-transform: uppercase;
+        line-height: 1.1;
+        margin-bottom: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 8px;
+      }
+
+      .hero-title .italic {
+        font-style: italic;
+        font-weight: 600;
         background: linear-gradient(135deg, #6d3aff 0%, #ff9e2c 100%);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
         display: inline-block;
-        line-height: 1.3;
-        padding: 4px 0;
-      }
-
-      /* строка "Привет! Меня зовут" */
-      .hero-greeting {
-        font-size: 24px;
-        font-weight: 500;
-        color: #6d3aff;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        margin-bottom: 16px;
-      }
-
-      /* имя НАДЯ отдельной строкой */
-      .hero-name {
-        font-size: 76px;
-        font-weight: 800;
-        color: #493f55;
-        text-transform: uppercase;
-        line-height: 1.2;
-        margin-bottom: 24px;
-        letter-spacing: -0.02em;
-        padding: 4px 0;
-      }
-
-      /* вторая строка — Кампейн директор (в одну строку) */
-      .hero-title {
-        font-size: 76px;
-        font-weight: 600;
-        text-transform: uppercase;
-        line-height: 1.2;
-        margin-bottom: 40px;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: baseline;
-        gap: 12px;
       }
 
       .hero-title .normal {
-        font-weight: 600;
         font-style: normal;
-        display: inline-block;
-        line-height: 1.1;
-        padding: 4px 0;
-      }
-
-      .hero-title .italic {
-        font-family: "Manrope", sans-serif;
         font-weight: 600;
-        font-style: italic;
-        color: #ff9e2c;
-        text-transform: uppercase;
-        letter-spacing: -0.01em;
-        display: inline-block;
-        line-height: 1.1;
-        padding: 4px 0;
+        color: #493f55;
       }
 
-      /* подзаголовок */
       .hero-subhead {
         font-size: 20px;
-        font-weight: 600;
+        font-weight: 500;
         color: #6d3aff;
         text-transform: uppercase;
         letter-spacing: 0.02em;
@@ -119,14 +102,13 @@
         margin-bottom: 48px;
       }
 
-      /* кнопка основная */
       .btn-primary {
         display: inline-block;
         background-color: #ff9e2c;
         color: #fffbf5;
-        font-family: "Manrope", sans-serif;
+        font-family: "Onest", sans-serif;
         font-size: 14px;
-        font-weight: 700;
+        font-weight: 600;
         text-transform: uppercase;
         text-decoration: none;
         padding: 16px 36px;
@@ -168,6 +150,7 @@
         text-decoration: none;
         letter-spacing: 0.05em;
         transition: color 0.3s ease;
+        font-family: "Onest", sans-serif;
       }
 
       .nav-links a:hover {
@@ -182,20 +165,21 @@
 
       .phone-number {
         font-size: 13px;
-        font-weight: 600;
+        font-weight: 500;
         color: #493f55;
         text-decoration: none;
         text-transform: uppercase;
         letter-spacing: 0.03em;
+        font-family: "Onest", sans-serif;
       }
 
       .btn-calc {
         background-color: transparent;
         border: 1px solid #ff9e2c;
         color: #ff9e2c;
-        font-family: "Manrope", sans-serif;
+        font-family: "Onest", sans-serif;
         font-size: 13px;
-        font-weight: 600;
+        font-weight: 500;
         text-transform: uppercase;
         letter-spacing: 0.05em;
         padding: 10px 24px;
@@ -209,14 +193,13 @@
         color: #fffbf5;
       }
 
-      /* Hero секция — ровно на всю высоту */
+      /* Hero секция */
       .hero {
         height: calc(100vh - 90px);
         display: flex;
         align-items: center;
       }
 
-      /* фото — без фона */
       .hero-photo {
         border-radius: 32px;
         width: 100%;
@@ -233,7 +216,7 @@
         justify-content: center;
       }
 
-      /* адаптив для мобильных */
+      /* адаптив */
       @media (max-width: 1024px) {
         .container {
           padding-left: 4vw;
@@ -246,17 +229,13 @@
         }
 
         .hero-greeting {
-          font-size: 18px;
-        }
-
-        .hero-title .italic {
-          font-size: 56px;
+          font-size: 16px;
         }
       }
 
       @media (max-width: 768px) {
-        .col-5,
-        .col-7 {
+        .col-4,
+        .col-8 {
           width: 100%;
         }
 
@@ -270,12 +249,8 @@
           font-size: 42px;
         }
 
-        .hero-title .italic {
-          font-size: 42px;
-        }
-
         .hero-greeting {
-          font-size: 16px;
+          font-size: 14px;
         }
 
         .hero-subhead {
@@ -301,10 +276,6 @@
         .hero-title {
           font-size: 32px;
         }
-
-        .hero-title .italic {
-          font-size: 32px;
-        }
       }
     </style>
   </head>
@@ -325,11 +296,11 @@
         </div>
       </nav>
 
-      <!-- Hero секция — ровно на всю высоту -->
+      <!-- Hero секция -->
       <section class="hero">
         <div class="row" style="align-items: center; width: 100%">
-          <!-- Левая колонка на 5 колонок под фото -->
-          <div class="col-5">
+          <!-- Фото — 4 колонки -->
+          <div class="col-4">
             <div class="photo-placeholder">
               <img
                 src="https://placehold.co/800x1000/FFFBF5/493F55?text=ФОТО+НАДИ"
@@ -339,21 +310,16 @@
             </div>
           </div>
 
-          <!-- Правая колонка на 7 колонок с текстом -->
-          <div class="col-7">
-            <!-- Привет! Меня зовут -->
+          <!-- Текст — 8 колонок -->
+          <div class="col-8">
             <div class="hero-greeting">ПРИВЕТ! МЕНЯ ЗОВУТ</div>
-
-            <!-- Имя НАДЯ отдельной строкой -->
             <div class="hero-name">НАДЯ</div>
 
-            <!-- Кампейн директор (в одну строку) -->
             <div class="hero-title">
-              <span class="italic gradient-text">КАМПЕЙН</span>
+              <span class="italic">КАМПЕЙН</span>
               <span class="normal">ДИРЕКТОР</span>
             </div>
 
-            <!-- Подзаголовок -->
             <div class="hero-subhead">
               ПРЕВРАТИЛА ХАОС НАЙМА SMM И СМЕНЫ ПОДРЯДЧИКОВ<br />
               В СИСТЕМУ ПРОДАЮЩИХ СПРИНТОВ
