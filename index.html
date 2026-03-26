@@ -42,37 +42,41 @@
         width: calc(58.333% - 12px);
       }
 
-      /* строка "Привет! Меня зовут Надя" */
-      .hero-name-line {
-        display: flex;
-        align-items: baseline;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-bottom: 16px;
+      /* градиентный текст без обрезания */
+      .gradient-text {
+        color: #6d3aff;
+        background: linear-gradient(135deg, #6d3aff 0%, #ff9e2c 100%);
+        -webkit-mask: linear-gradient(#fff 0 0) text;
+        mask: linear-gradient(#fff 0 0) text;
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
       }
 
-      .hero-name-prefix {
+      /* строка "Привет! Меня зовут" */
+      .hero-greeting {
         font-size: 24px;
         font-weight: 500;
         color: #6d3aff;
         text-transform: uppercase;
         letter-spacing: 0.1em;
+        margin-bottom: 16px;
       }
 
-      .hero-name-first {
+      /* имя НАДЯ отдельной строкой */
+      .hero-name {
         font-size: 82px;
         font-weight: 800;
         color: #493f55;
         text-transform: uppercase;
-        line-height: 1;
+        line-height: 1.05;
+        margin-bottom: 24px;
         letter-spacing: -0.02em;
       }
 
       /* вторая строка — Кампейн директор (в одну строку) */
-      .hero-name-second {
+      .hero-title {
         font-size: 82px;
         font-weight: 800;
-        color: #493f55;
         text-transform: uppercase;
         line-height: 1.05;
         margin-bottom: 40px;
@@ -82,12 +86,13 @@
         gap: 12px;
       }
 
-      .hero-name-second .normal {
+      .hero-title .normal {
+        color: #493f55;
         font-weight: 800;
         font-style: normal;
       }
 
-      .hero-name-second .italic {
+      .hero-title .italic {
         font-family: "Manrope", sans-serif;
         font-weight: 800;
         font-style: italic;
@@ -229,12 +234,12 @@
           padding-right: 4vw;
         }
 
-        .hero-name-first,
-        .hero-name-second {
+        .hero-name,
+        .hero-title {
           font-size: 56px;
         }
 
-        .hero-name-prefix {
+        .hero-greeting {
           font-size: 18px;
         }
       }
@@ -250,12 +255,12 @@
           padding: 40px 0 60px 0;
         }
 
-        .hero-name-first,
-        .hero-name-second {
+        .hero-name,
+        .hero-title {
           font-size: 42px;
         }
 
-        .hero-name-prefix {
+        .hero-greeting {
           font-size: 16px;
         }
 
@@ -278,8 +283,8 @@
       }
 
       @media (max-width: 480px) {
-        .hero-name-first,
-        .hero-name-second {
+        .hero-name,
+        .hero-title {
           font-size: 32px;
         }
       }
@@ -308,9 +313,9 @@
           <!-- Левая колонка на 5 колонок под фото -->
           <div class="col-5">
             <div class="photo-placeholder">
-              <img
-                src="https://placehold.co/800x1000/FFFBF5/493F55?text=ФОТО+НАДИ"
-                alt="Надя, кампейн директор"
+              <img 
+                src="https://placehold.co/800x1000/FFFBF5/493F55?text=ФОТО+НАДИ" 
+                alt="Надя, кампейн директор" 
                 class="hero-photo"
               />
             </div>
@@ -318,16 +323,16 @@
 
           <!-- Правая колонка на 7 колонок с текстом -->
           <div class="col-7">
-            <!-- Первая строка: Привет! Меня зовут + НАДЯ -->
-            <div class="hero-name-line">
-              <span class="hero-name-prefix">ПРИВЕТ! МЕНЯ ЗОВУТ</span>
-              <span class="hero-name-first">НАДЯ,</span>
-            </div>
-
-            <!-- Вторая строка: Кампейн директор (в одну строку) -->
-            <div class="hero-name-second">
-              <span class="italic">КАМПЕЙН-</span>
-              <span class="normal">директор</span>
+            <!-- Привет! Меня зовут -->
+            <div class="hero-greeting">ПРИВЕТ! МЕНЯ ЗОВУТ</div>
+            
+            <!-- Имя НАДЯ отдельной строкой -->
+            <div class="hero-name">НАДЯ</div>
+            
+            <!-- Кампейн директор (в одну строку) -->
+            <div class="hero-title">
+              <span class="normal gradient-text">КАМПЕЙН</span>
+              <span class="italic">ДИРЕКТОР</span>
             </div>
 
             <!-- Подзаголовок -->
