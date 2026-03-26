@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Надя — Кампейн директор</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #fffbf5;
+        font-family: "Manrope", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+      }
+
+      .container {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding-left: 6vw;
+        padding-right: 6vw;
+      }
+
+      /* 12-колоночная сетка */
+      .row {
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+
+      .col-1 {
+        width: calc(8.333% - 22px);
+      }
+      .col-2 {
+        width: calc(16.666% - 22px);
+      }
+      .col-3 {
+        width: calc(25% - 22px);
+      }
+      .col-4 {
+        width: calc(33.333% - 22px);
+      }
+      .col-5 {
+        width: calc(41.666% - 22px);
+      }
+      .col-6 {
+        width: calc(50% - 22px);
+      }
+      .col-7 {
+        width: calc(58.333% - 22px);
+      }
+      .col-8 {
+        width: calc(66.666% - 22px);
+      }
+      .col-9 {
+        width: calc(75% - 22px);
+      }
+      .col-10 {
+        width: calc(83.333% - 22px);
+      }
+      .col-11 {
+        width: calc(91.666% - 22px);
+      }
+      .col-12 {
+        width: calc(100% - 22px);
+      }
+
+      /* типографика */
+      h1,
+      .h1 {
+        font-size: 82px;
+        font-weight: 700;
+        color: #493f55;
+        text-transform: uppercase;
+        line-height: 1.1;
+      }
+
+      h2,
+      .h2 {
+        font-size: 51px;
+        font-weight: 700;
+        color: #493f55;
+        text-transform: uppercase;
+        line-height: 1.2;
+      }
+
+      h3,
+      .subhead-1 {
+        font-size: 20px;
+        font-weight: 600;
+        color: #6d3aff;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+      }
+
+      p,
+      .text {
+        font-size: 13px;
+        font-weight: 400;
+        color: #fffbf55;
+        line-height: 1.5;
+      }
+
+      /* кнопка */
+      .btn-primary {
+        display: inline-block;
+        background-color: #ff9e2c;
+        color: #fffbf5;
+        font-family: "Manrope", sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 16px 32px;
+        border-radius: 40px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary:hover {
+        background-color: #e88a1a;
+        transform: scale(1.02);
+      }
+
+      /* навигация */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 0;
+        border-bottom: 1px solid rgba(73, 63, 85, 0.1);
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 32px;
+        list-style: none;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a {
+        font-size: 13px;
+        font-weight: 500;
+        color: #493f55;
+        text-transform: uppercase;
+        text-decoration: none;
+        letter-spacing: 0.02em;
+      }
+
+      .nav-links a:hover {
+        color: #6d3aff;
+      }
+
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .phone-number {
+        font-size: 13px;
+        font-weight: 600;
+        color: #493f55;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .btn-calc {
+        background-color: transparent;
+        border: 1px solid #ff9e2c;
+        color: #ff9e2c;
+        padding: 8px 20px;
+        border-radius: 40px;
+        font-size: 13px;
+        font-weight: 600;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .btn-calc:hover {
+        background-color: #ff9e2c;
+        color: #493f55;
+      }
+
+      /* адаптив для мобильных */
+      @media (max-width: 768px) {
+        .col-5,
+        .col-7 {
+          width: 100%;
+        }
+
+        h1,
+        .h1 {
+          font-size: 48px;
+        }
+
+        h2,
+        .h2 {
+          font-size: 32px;
+        }
+
+        .nav-links {
+          gap: 16px;
+        }
+
+        .navbar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Меню -->
+      <nav class="navbar">
+        <ul class="nav-links">
+          <li><a href="#">Кампейн</a></li>
+          <li><a href="#">Как это работает</a></li>
+          <li><a href="#">Оффер</a></li>
+          <li><a href="#">Обо мне</a></li>
+          <li><a href="#">Контакты</a></li>
+        </ul>
+        <div class="nav-right">
+          <a href="tel:+71234567890" class="phone-number">+7 (123) 456-78-90</a>
+          <button class="btn-calc">Калькулятор кампании</button>
+        </div>
+      </nav>
+
+      <!-- Hero секция (обложка) -->
+      <section style="padding: 60px 0 80px 0">
+        <div class="row">
+          <!-- Левая колонка на 5 колонок под фото -->
+          <div class="col-5">
+            <div
+              style="
+                background-color: #e0f9f3;
+                border-radius: 32px;
+                height: 100%;
+                min-height: 500px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+              "
+            >
+              <!-- Здесь будет ваше фото. Замените на свою картинку -->
+              <div style="text-align: center; color: #493f55; padding: 40px">
+                <svg
+                  width="80"
+                  height="80"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"
+                    fill="#493F55"
+                  />
+                </svg>
+                <p style="margin-top: 16px">[Ваше фото]</p>
+              </div>
+              <!-- Когда будет фото, замените код выше на этот:
+          <img src="your-photo.jpg" alt="Надя, кампейн директор" style="width: 100%; height: 100%; object-fit: cover; border-radius: 32px;">
+          -->
+            </div>
+          </div>
+
+          <!-- Правая колонка на 7 колонок с текстом -->
+          <div class="col-7">
+            <h1>Я НАДЯ,<br />КАМПЕЙН ДИРЕКТОР</h1>
+
+            <div style="margin-top: 24px">
+              <h2>
+                ПРЕВРАТИЛА ХАОС НАЙМА SMM<br />И СМЕНЫ ПОДРЯДЧИКОВ В СИСТЕМУ<br />ПРОДАЮЩИХ
+                СПРИНТОВ
+              </h2>
+            </div>
+
+            <div style="margin-top: 24px">
+              <h3>МЕХАНИКА МЕДИА-ГИГАНТОВ, АДАПТИРОВАННАЯ ПОД МАЛЫЙ БИЗНЕС</h3>
+            </div>
+
+            <div style="margin-top: 40px">
+              <a href="#" class="btn-primary">ХОЧУ ПОТОК ЗАЯВОК</a>
+            </div>
+
+            <!-- небольшой текст-триггер под кнопкой (опционально) -->
+            <p style="margin-top: 20px; font-size: 11px; opacity: 0.7">
+              *бесплатный бриф-разбор вашего бизнеса
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
