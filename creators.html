@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Креаторы — Надя Борсе</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #fffbf5;
+        font-family: "Manrope", sans-serif;
+        color: #1e1a2a;
+        scroll-behavior: smooth;
+      }
+
+      .container {
+        margin: 0;
+        padding-left: 6vw;
+        padding-right: 6vw;
+      }
+
+      /* 12-колоночная сетка */
+      .row {
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+      .col-5 {
+        width: calc(41.666% - 12px);
+      }
+      .col-7 {
+        width: calc(58.333% - 12px);
+      }
+      .col-6 {
+        width: calc(50% - 12px);
+      }
+      .col-4 {
+        width: calc(33.333% - 16px);
+      }
+      .col-3 {
+        width: calc(25% - 18px);
+      }
+
+      /* градиентный текст */
+      .gradient-text {
+        background: linear-gradient(135deg, #6d3aff 0%, #ff9e2c 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        display: inline-block;
+      }
+
+      /* типографика */
+      .section-title {
+        font-size: 48px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: -0.02em;
+        margin-bottom: 24px;
+        line-height: 1.2;
+      }
+      .stat-badge {
+        background: rgba(109, 58, 255, 0.04);
+        border-radius: 48px;
+        padding: 8px 20px;
+        display: inline-block;
+        font-weight: 500;
+        font-size: 14px;
+        color: #6d3aff;
+      }
+
+      /* кнопки */
+      .btn-primary {
+        display: inline-block;
+        background-color: #ff9e2c;
+        color: #fffbf5;
+        font-family: "Manrope", sans-serif;
+        font-size: 14px;
+        font-weight: 800;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 16px 36px;
+        border-radius: 40px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        letter-spacing: 0.05em;
+      }
+      .btn-primary:hover {
+        background-color: #e88a1a;
+        transform: scale(1.02);
+      }
+      .btn-outline {
+        background: transparent;
+        border: 1px solid #ff9e2c;
+        color: #ff9e2c;
+        padding: 10px 24px;
+        border-radius: 40px;
+        font-weight: 600;
+        font-size: 13px;
+        cursor: pointer;
+        transition: 0.2s;
+        font-family: inherit;
+      }
+      .btn-outline:hover {
+        background: #ff9e2c;
+        color: #fffbf5;
+      }
+
+      /* навигация */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 28px 0;
+        border-bottom: 1px solid rgba(73, 63, 85, 0.08);
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .nav-links {
+        display: flex;
+        gap: 40px;
+        list-style: none;
+        flex-wrap: wrap;
+      }
+      .nav-links a {
+        font-size: 13px;
+        font-weight: 500;
+        color: #493f55;
+        text-transform: uppercase;
+        text-decoration: none;
+        letter-spacing: 0.05em;
+        transition: color 0.3s;
+      }
+      .nav-links a:hover {
+        color: #6d3aff;
+      }
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+      }
+      .phone-number {
+        font-size: 13px;
+        font-weight: 600;
+        color: #493f55;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+      .btn-calc {
+        background: transparent;
+        border: 1px solid #ff9e2c;
+        color: #ff9e2c;
+        font-family: "Manrope", sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 10px 24px;
+        border-radius: 40px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .btn-calc:hover {
+        background-color: #ff9e2c;
+        color: #fffbf5;
+      }
+
+      /* ===== TABS (хэштеги-фильтры) ===== */
+      .tabs-container {
+        margin: 40px 0 48px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+      }
+      .tab-btn {
+        background: transparent;
+        border: 1px solid #e0d6cc;
+        padding: 10px 24px;
+        border-radius: 60px;
+        font-size: 14px;
+        font-weight: 500;
+        color: #5a5568;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-family: inherit;
+      }
+      .tab-btn.active {
+        background: linear-gradient(135deg, #6d3aff 0%, #ff9e2c 100%);
+        border-color: transparent;
+        color: white;
+      }
+      .tab-btn:hover:not(.active) {
+        border-color: #ff9e2c;
+        color: #ff9e2c;
+      }
+
+      /* ===== КАРТОЧКИ КРЕАТОРОВ ===== */
+      .creators-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+        margin-bottom: 80px;
+      }
+      .creator-card {
+        background: #ffffff;
+        border-radius: 40px;
+        border: 1px solid #f0e8df;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02);
+      }
+      .creator-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 35px -12px rgba(109, 58, 255, 0.1);
+        border-color: #ff9e2c60;
+      }
+      .card-inner {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      /* левая колонка — фото */
+      .creator-photo {
+        width: 30%;
+        min-width: 200px;
+        background: #faf3ea;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 28px;
+      }
+      .creator-photo img {
+        width: 100%;
+        height: auto;
+        border-radius: 28px;
+        object-fit: cover;
+        aspect-ratio: 1 / 1;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      }
+      /* центральная колонка — инфо */
+      .creator-info {
+        flex: 1;
+        padding: 32px 28px;
+      }
+      .creator-name {
+        font-size: 32px;
+        font-weight: 700;
+        color: #493f55;
+        margin-bottom: 12px;
+        letter-spacing: -0.02em;
+      }
+      .creator-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 16px 0 20px;
+      }
+      .creator-tag {
+        background: #f7f2ea;
+        padding: 5px 14px;
+        border-radius: 40px;
+        font-size: 12px;
+        font-weight: 500;
+        color: #6d3aff;
+      }
+      .creator-bio {
+        font-size: 16px;
+        line-height: 1.5;
+        color: #5a5568;
+        margin-bottom: 24px;
+      }
+      .contact-creator {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: transparent;
+        border: 1px solid #ff9e2c;
+        padding: 10px 24px;
+        border-radius: 40px;
+        font-weight: 600;
+        font-size: 13px;
+        color: #ff9e2c;
+        text-decoration: none;
+        transition: 0.2s;
+      }
+      .contact-creator:hover {
+        background: #ff9e2c;
+        color: white;
+      }
+      /* правая колонка — галерея видео (карусель) */
+      .creator-reel {
+        width: 320px;
+        background: #fefaf5;
+        padding: 24px 20px;
+        border-left: 1px solid #f0e8df;
+      }
+      .reel-title {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #a09bb0;
+        margin-bottom: 16px;
+      }
+      .video-carousel {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .video-item {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        aspect-ratio: 9 / 16;
+        background: #eae2d8;
+        cursor: pointer;
+      }
+      .video-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.2s;
+      }
+      .video-item:hover img {
+        transform: scale(1.02);
+      }
+      .play-overlay {
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 30px;
+        padding: 4px 10px;
+        font-size: 11px;
+        color: white;
+        backdrop-filter: blur(4px);
+      }
+      .carousel-nav {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 16px;
+      }
+      .nav-dot {
+        width: 8px;
+        height: 8px;
+        background: #ddd2c4;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .nav-dot.active {
+        background: #ff9e2c;
+        width: 24px;
+      }
+      .empty-message {
+        text-align: center;
+        padding: 60px 20px;
+        color: #a09bb0;
+        font-size: 18px;
+      }
+
+      hr {
+        margin: 60px 0 40px;
+        border: none;
+        height: 1px;
+        background: linear-gradient(90deg, #ff9e2c20, #6d3aff20, #ff9e2c20);
+      }
+
+      @media (max-width: 1024px) {
+        .section-title {
+          font-size: 40px;
+        }
+        .creator-photo {
+          width: 35%;
+        }
+        .creator-reel {
+          width: 280px;
+        }
+      }
+      @media (max-width: 900px) {
+        .card-inner {
+          flex-direction: column;
+        }
+        .creator-photo {
+          width: 100%;
+          max-width: 280px;
+          margin: 0 auto;
+          padding: 24px;
+        }
+        .creator-reel {
+          width: 100%;
+          border-left: none;
+          border-top: 1px solid #f0e8df;
+        }
+        .creator-info {
+          width: 100%;
+        }
+      }
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .section-title {
+          font-size: 32px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Меню (как на главной) -->
+      <nav class="navbar">
+        <ul class="nav-links">
+          <li><a href="#">Надя Борсе</a></li>
+          <li><a href="#">🔥 Предложение</a></li>
+          <li><a href="#">Как работаем</a></li>
+          <li>
+            <a href="#" style="color: #6d3aff; font-weight: 600">Креаторы</a>
+          </li>
+          <li><a href="#">Контакты</a></li>
+        </ul>
+        <div class="nav-right">
+          <a href="tel:+71234567890" class="phone-number">+7 (123) 456-78-90</a>
+          <button class="btn-calc">Калькулятор кампании</button>
+        </div>
+      </nav>
+
+      <!-- Заголовок секции креаторов -->
+      <div style="text-align: center; margin: 40px 0 20px">
+        <span class="stat-badge">творческая гильдия</span>
+        <h1 class="section-title" style="margin-top: 16px">
+          Наши <span class="gradient-text">креаторы</span>
+        </h1>
+        <p style="color: #5a5568; max-width: 600px; margin: 0 auto">
+          Выбирайте профессионалов под свои задачи — каждый специалист проверен
+          лично мной. Свяжем, договоримся, запустим.
+        </p>
+      </div>
+
+      <!-- Фильтры по хэштегам -->
+      <div class="tabs-container" id="filterTabs">
+        <button class="tab-btn active" data-filter="all">#все</button>
+        <button class="tab-btn" data-filter="ai-video">#ai-видео</button>
+        <button class="tab-btn" data-filter="tiktok">#tiktok</button>
+        <button class="tab-btn" data-filter="reels">#reels</button>
+        <button class="tab-btn" data-filter="branded">#branded-content</button>
+        <button class="tab-btn" data-filter="cinematic">#cinematic</button>
+      </div>
+
+      <!-- Сетка карточек креаторов (будет заполнена динамически) -->
+      <div id="creatorsList" class="creators-grid"></div>
+
+      <hr />
+      <!-- Призыв к сотрудничеству -->
+      <section style="margin: 40px 0 80px; text-align: center">
+        <h3 class="gradient-text" style="font-size: 28px; font-weight: 700">
+          Хотите стать частью команды?
+        </h3>
+        <p style="margin-top: 16px; color: #5a5568">
+          Если вы видеограф, режиссёр монтажа или motion-дизайнер — пишите,
+          добавим вас в пул.
+        </p>
+        <button
+          class="btn-primary"
+          style="margin-top: 28px; background: #6d3aff"
+        >
+          Подать заявку
+        </button>
+      </section>
+
+      <footer
+        style="
+          border-top: 1px solid rgba(73, 63, 85, 0.1);
+          padding: 32px 0 48px;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+        "
+      >
+        <div style="font-size: 13px; color: #7c7790">
+          © Надя Борсе — продюсерский центр
+        </div>
+        <div style="display: flex; gap: 24px">
+          <a
+            href="#"
+            style="text-decoration: none; font-size: 13px; color: #6d3aff"
+            >Instagram</a
+          >
+          <a
+            href="#"
+            style="text-decoration: none; font-size: 13px; color: #6d3aff"
+            >Telegram</a
+          >
+          <a
+            href="#"
+            style="text-decoration: none; font-size: 13px; color: #6d3aff"
+            >Политика конфиденциальности</a
+          >
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      // БАЗА КРЕАТОРОВ: фото, имя, хэштеги (личные), описание, видео-превью (имитация галереи)
+      const creatorsData = [
+        {
+          id: 1,
+          name: "Алина Верещагина",
+          tags: ["#ai-видео", "#cinematic", "#reels"],
+          bio: "AI-художник и режиссёр монтажа. Создаю нейросетевые видео-миры, которые взрывают охваты. Работала с Lamoda, Yandex Music.",
+          photo: "https://placehold.co/600x600/FAE9DD/6d3aff?text=Алина",
+          videos: [
+            "https://placehold.co/400x720/2A1E3A/FF9E2C?text=AI+reel+1",
+            "https://placehold.co/400x720/3A2A4A/FF9E2C?text=cinematic+2",
+            "https://placehold.co/400x720/1E1232/FF9E2C?text=AI+morph",
+          ],
+          contact: "tg: @alina_ai",
+        },
+        {
+          id: 2,
+          name: "Марк Титов",
+          tags: ["#tiktok", "#reels", "#branded-content"],
+          bio: "Король виральных роликов. Специалист по трендам, сторителлингу и монтажу под TikTok/Reels. Сотни миллионов просмотров на аккаунтах клиентов.",
+          photo: "https://placehold.co/600x600/F3E5D8/6d3aff?text=Марк",
+          videos: [
+            "https://placehold.co/400x720/D9C7B2/FF9E2C?text=tiktok+hack",
+            "https://placehold.co/400x720/CAB99F/FF9E2C?text=trend+reel",
+          ],
+          contact: "mark.titov@example.com",
+        },
+        {
+          id: 3,
+          name: "София Ким",
+          tags: ["#cinematic", "#branded-content", "#ai-видео"],
+          bio: "Кинооператор и режиссёр. Снимаю дорогую эстетику для бьюти, fashion и премиум-брендов. Есть опыт с каскадёрами и сложными локациями.",
+          photo: "https://placehold.co/600x600/F7EBDD/6d3aff?text=София",
+          videos: [
+            "https://placehold.co/400x720/B59F82/FF9E2C?text=fashion+film",
+            "https://placehold.co/400x720/9F8868/FF9E2C?text=cinematic+beauty",
+            "https://placehold.co/400x720/C9AF8A/FF9E2C?text=premium+spot",
+          ],
+          contact: "sophia.kim@creators.pro",
+        },
+        {
+          id: 4,
+          name: "Денис Рудаков",
+          tags: ["#tiktok", "#reels", "#ai-видео"],
+          bio: "Креативный продюсер коротких форм. Комбинирую живую съёмку и AI-эффекты. Делаю контент, который зависает в рекомендациях на недели.",
+          photo: "https://placehold.co/600x600/E9DCCF/6d3aff?text=Денис",
+          videos: [
+            "https://placehold.co/400x720/B89F7A/FF9E2C?text=ai+tiktok",
+            "https://placehold.co/400x720/A58760/FF9E2C?text=trend+remix",
+          ],
+          contact: "@den_rudakov",
+        },
+        {
+          id: 5,
+          name: "Екатерина Миронова",
+          tags: ["#branded-content", "#cinematic", "#reels"],
+          bio: "Режиссёр монтажа и motion-дизайнер. Работаю с крупными брендами: интеграции, айдентика, визуальные эффекты. Создаю образы «как в кино».",
+          photo: "https://placehold.co/600x600/F5E6D9/6d3aff?text=Катя",
+          videos: [
+            "https://placehold.co/400x720/C7AF8B/FF9E2C?text=branded+reel",
+            "https://placehold.co/400x720/AD8F68/FF9E2C?text=motion+design",
+          ],
+          contact: "katya.m@prod.center",
+        },
+      ];
+
+      let currentFilter = "all";
+
+      // Функция отрисовки карточек
+      function renderCreators(filter) {
+        const container = document.getElementById("creatorsList");
+        if (!container) return;
+        const filtered =
+          filter === "all"
+            ? creatorsData
+            : creatorsData.filter((c) => c.tags.includes(`#${filter}`));
+        if (filtered.length === 0) {
+          container.innerHTML = `<div class="empty-message">🤍 Нет креаторов с таким тегом, но скоро появятся. Напишите нам — подберём идеального специалиста.</div>`;
+          return;
+        }
+
+        container.innerHTML = filtered
+          .map(
+            (creator) => `
+      <div class="creator-card" data-id="${creator.id}">
+        <div class="card-inner">
+          <!-- левая колонка: фото -->
+          <div class="creator-photo">
+            <img src="${creator.photo}" alt="${creator.name}">
+          </div>
+          <!-- центр: имя, теги, био, контакт -->
+          <div class="creator-info">
+            <div class="creator-name">${creator.name}</div>
+            <div class="creator-tags">
+              ${creator.tags
+                .map((tag) => `<span class="creator-tag">${tag}</span>`)
+                .join("")}
+            </div>
+            <div class="creator-bio">${creator.bio}</div>
+            <a href="#" class="contact-creator" data-contact="${
+              creator.contact
+            }">
+              📩 Связаться → 
+            </a>
+          </div>
+          <!-- правая колонка: галерея видео (карусель) -->
+          <div class="creator-reel">
+            <div class="reel-title">🎬 вертикальное портфолио</div>
+            <div class="video-carousel" id="carousel-${creator.id}">
+              ${creator.videos
+                .map(
+                  (vid, idx) => `
+                <div class="video-item" data-video-index="${idx}" data-creator="${
+                    creator.id
+                  }">
+                  <img src="${vid}" alt="видео превью">
+                  <div class="play-overlay">▶ ${idx + 1}</div>
+                </div>
+              `
+                )
+                .join("")}
+            </div>
+            <div class="carousel-nav" id="nav-${creator.id}">
+              ${creator.videos
+                .map(
+                  (_, idx) =>
+                    `<div class="nav-dot ${
+                      idx === 0 ? "active" : ""
+                    }" data-dot-idx="${idx}"></div>`
+                )
+                .join("")}
+            </div>
+          </div>
+        </div>
+      </div>
+    `
+          )
+          .join("");
+
+        // после отрисовки — инициализация каруселей для каждого креатора (показ только одного видео, остальные скрыты)
+        creatorsData.forEach((creator) => {
+          const carouselDiv = document.getElementById(`carousel-${creator.id}`);
+          if (!carouselDiv) return;
+          const videoItems = carouselDiv.querySelectorAll(".video-item");
+          const navDots = document.querySelectorAll(
+            `#nav-${creator.id} .nav-dot`
+          );
+          let currentIndex = 0;
+
+          function showVideo(index) {
+            videoItems.forEach((item, i) => {
+              item.style.display = i === index ? "block" : "none";
+            });
+            navDots.forEach((dot, i) => {
+              if (i === index) dot.classList.add("active");
+              else dot.classList.remove("active");
+            });
+            currentIndex = index;
+          }
+
+          // изначально показываем первое, остальные скрываем
+          videoItems.forEach((item, idx) => {
+            if (idx !== 0) item.style.display = "none";
+            else item.style.display = "block";
+          });
+
+          navDots.forEach((dot) => {
+            dot.addEventListener("click", (e) => {
+              const idx = parseInt(dot.getAttribute("data-dot-idx"));
+              showVideo(idx);
+            });
+          });
+
+          // опционально: клик по видео открывает ссылку на полную версию (имитация)
+          videoItems.forEach((item, idx) => {
+            item.addEventListener("click", () => {
+              alert(
+                `🎥 Демо-ролик #${idx + 1}\nПолное портфолио и контакты: ${
+                  creator.contact
+                }\nСвяжу с креатором лично!`
+              );
+            });
+          });
+        });
+
+        // Обработчики для кнопок "Связаться →"
+        document.querySelectorAll(".contact-creator").forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            const contactInfo = btn.getAttribute("data-contact");
+            alert(
+              `📬 Контакт креатора: ${contactInfo}\nНадя свяжет вас напрямую и проконтролирует процесс.`
+            );
+          });
+        });
+      }
+
+      // фильтрация по табам
+      function setupFilters() {
+        const btns = document.querySelectorAll(".tab-btn");
+        btns.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            btns.forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            currentFilter = btn.getAttribute("data-filter");
+            renderCreators(currentFilter);
+          });
+        });
+      }
+
+      renderCreators("all");
+      setupFilters();
+    </script>
+  </body>
+</html>
